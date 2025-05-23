@@ -27,13 +27,30 @@ pub fn login() -> Html {
     };
 
     html! {
-       <div class="bg-gray-800 flex w-screen">
-            <div class="container mx-auto flex flex-col justify-center items-center">
-                <form class="m-4 flex">
-                    <input {oninput} class="rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white" placeholder="Username" />
-                    <Link<Route> to={Route::Chat}> <button {onclick} disabled={username.len()<1} class="px-8 rounded-r-lg bg-violet-600	  text-white font-bold p-4 uppercase border-violet-600 border-t border-b border-r" >{"Go Chatting!"}</button></Link<Route>>
+        <div class="bg-gradient-to-br from-black via-gray-900 to-black min-h-screen w-screen flex items-center justify-center">
+            <div class="bg-gradient-to-br from-gray-950 via-black to-gray-900 p-8 rounded-xl shadow-2xl border border-indigo-700 w-full max-w-sm mx-4 text-center space-y-6">
+                <div class="flex justify-center items-center space-x-4 text-yellow-400 text-4xl">
+                    <h1 class="font-bold tracking-widest text-white text-3xl">{"YEWCHAT"}</h1>
+                </div>
+                <p class="text-gray-400 text-sm italic">{"Making new friends is just a click away."}</p>
+                <form class="flex rounded-lg overflow-hidden shadow-inner border border-indigo-600 bg-black bg-opacity-60 backdrop-blur-sm">
+                    <input 
+                        {oninput} 
+                        class="w-full px-4 py-3 text-white placeholder-gray-500 bg-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                        placeholder="Username"
+                    />
+                    <Link<Route> to={Route::Chat}>
+                        <button 
+                            {onclick} 
+                            disabled={username.len() < 1}
+                            class="px-6 py-3 text-sm font-bold uppercase text-white bg-indigo-700 hover:bg-indigo-800 transition-colors"
+                        >
+                            {"🚀 Go Chatting!"}
+                        </button>
+                    </Link<Route>>
                 </form>
             </div>
         </div>
     }
+       
 }
